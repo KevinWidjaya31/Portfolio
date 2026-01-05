@@ -1,0 +1,96 @@
+.contact {
+  padding: 100px 20px;
+  background: #f9fafb;
+}
+
+.section-title {
+  font-size: 36px;
+  font-weight: 600;
+  margin-bottom: 48px;
+  color: #111827;
+}
+
+.section-title.center {
+  text-align: center;
+}
+
+/* Container */
+.contact .container {
+  max-width: 520px;
+  margin: 0 auto;
+  background: #ffffff;
+  padding: 32px;
+  border-radius: 16px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.06);
+}
+
+/* Form */
+.contact form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Label */
+.contact label {
+  font-size: 14px;
+  font-weight: 500;
+  color: #374151;
+}
+
+/* Input & Textarea */
+.contact input,
+.contact textarea {
+  width: 100%;
+  padding: 14px 16px;
+  border-radius: 10px;
+  border: 1px solid #e5e7eb;
+  font-size: 14px;
+  font-family: inherit;
+  background: #ffffff;
+  transition: all 0.3s ease;
+}
+
+/* Textarea height */
+.contact textarea {
+  resize: none;
+  height: 120px;
+}
+
+/* Focus effect */
+.contact input:focus,
+.contact textarea:focus {
+  outline: none;
+  border-color: #6366f1;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
+}
+
+/* Button */
+.contact button {
+  margin-top: 12px;
+  padding: 14px;
+  border-radius: 12px;
+  border: none;
+  background: #6366f1;
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+/* Button hover */
+.contact button:hover {
+  background: #4f46e5;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .section-title {
+    font-size: 28px;
+  }
+
+  .contact .container {
+    padding: 24px;
+  }
+}
