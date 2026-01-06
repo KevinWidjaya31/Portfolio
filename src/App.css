@@ -1,0 +1,10 @@
+/* * {
+  outline: 1px solid rgba(255, 0, 0, 0.2);
+} */
+/* GLOBAL SPACING SYSTEM */
+:root {
+  --section-padding-y: 120px;
+  --content-gap-sm: 12px;
+  --content-gap-md: 20px;
+  --content-gap-lg: 40px;
+}

@@ -7,7 +7,7 @@ const projects = [
   {
     title: "Sign Language Recognition",
     desc: "Real-time sign language detection using ML.",
-    image: "../public/profile.png",
+    image: "../profile.png",
     tech: ["Python", "OpenCV", "XGBoost"],
     code: "#",
     demo: "#",

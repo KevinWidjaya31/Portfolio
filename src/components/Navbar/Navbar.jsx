@@ -1,5 +1,14 @@
 import { useState } from "react"
 import { motion } from "framer-motion"
+import {
+  FaHome,
+  FaRegUser,
+  FaRoute,
+  FaCode,
+  FaFolderOpen,
+  FaEnvelope,
+} from "react-icons/fa"
+
 import "../Navbar/Navbar.css"
 
 export function Navbar() {
@@ -7,12 +16,12 @@ export function Navbar() {
   motion
 
   const navLinks = [
-    { href: "#home", label: "Home" },
-    { href: "#about", label: "About" },
-    { href: "#journey", label: "My Journey" },
-    { href: "#skills", label: "Skills" },
-    { href: "#projects", label: "Projects" },
-    { href: "#contact", label: "Contact" },
+    { href: "#home", label: "Home", icon: <FaHome /> },
+    { href: "#about", label: "About", icon: <FaRegUser /> },
+    { href: "#journey", label: "My Journey", icon: <FaRoute /> },
+    { href: "#skills", label: "Skills", icon: <FaCode /> },
+    { href: "#projects", label: "Projects", icon: <FaFolderOpen /> },
+    { href: "#contact", label: "Contact", icon: <FaEnvelope /> },
   ]
 
   return (
@@ -29,8 +38,10 @@ export function Navbar() {
               className={`navbar-link ${
                 activeLink === link.href ? "active" : ""
               }`}
-              onClick={() => setActiveLink(link.href)}>
-              {link.label}
+              onClick={() => setActiveLink(link.href)}
+              whileHover={{ y: -2 }}>
+              <span className="nav-icon">{link.icon}</span>
+              <span className="nav-text">{link.label}</span>
             </motion.a>
           </li>
         ))}

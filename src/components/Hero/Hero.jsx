@@ -1,8 +1,49 @@
 import { motion } from "framer-motion"
+import { useEffect, useState } from "react"
+import {
+  FaGithub,
+  FaLinkedin,
+  FaInstagram,
+  FaArrowRight,
+  FaCloudDownloadAlt,
+} from "react-icons/fa"
+
 import "./Hero.css"
+
+const interests = ["Website Developer", "Mobile Developer", "AI Engineer"]
 
 export function Hero() {
   motion
+  const [text, setText] = useState("")
+  const [index, setIndex] = useState(0)
+  const [isDeleting, setIsDeleting] = useState(false)
+
+  useEffect(() => {
+    const current = interests[index]
+    const speed = isDeleting ? 50 : 120
+
+    const timeout = setTimeout(() => {
+      setText((prev) =>
+        isDeleting
+          ? current.substring(0, prev.length - 1)
+          : current.substring(0, prev.length + 1)
+      )
+
+      // selesai mengetik
+      if (!isDeleting && text === current) {
+        setTimeout(() => setIsDeleting(true), 1000)
+      }
+
+      // selesai menghapus
+      if (isDeleting && text === "") {
+        setIsDeleting(false)
+        setIndex((prev) => (prev + 1) % interests.length)
+      }
+    }, speed)
+
+    return () => clearTimeout(timeout)
+  }, [text, isDeleting, index])
+
   return (
     <section id="home" className="hero">
       <motion.div
@@ -16,35 +57,47 @@ export function Hero() {
           initial={{ x: -60, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           transition={{ duration: 0.8, ease: "easeOut" }}>
-          <h1 className="hero-name">
-            Kevin <span>Widjaya</span>
-          </h1>
+          <h1 className="hero-status">Student @Universitas Bunda Mulia</h1>
+          <h1 className="hero-name">HI, I'm Kevin Widjaya</h1>
 
-          <h2 className="hero-title">Frontend Developer</h2>
+          {/* TYPING TEXT */}
+          <h2 className="hero-title typing">
+            and I’m a <span className="typing-text">{text}</span>
+            <span className="cursor">|</span>
+          </h2>
 
           <p className="hero-desc">
-            I build modern, interactive, and performant web applications with
-            React and modern UI technologies.
+            {/* A last-year Informatics student at Universitas Bunda Mulia, I am
+            passionate about building modern web applications, developing mobile
+            solutions, and exploring artificial intelligence to create impactful
+            and innovative digital experiences. */}
+            A last-year Informatics student at Universitas Bunda Mulia, I am
+            passionate about creating modern, efficient, and user-centered
+            digital solutions while continuously improving my technical and
+            problem-solving skills.
           </p>
 
           <div className="hero-actions">
             <a href="/cv.pdf" className="btn primary" download>
-              Download CV
+              <span>Dowload CV</span>
+              <FaCloudDownloadAlt />
             </a>
-            <a href="#contact" className="btn outline">
-              Contact
+            <a href="#projects" className="btn outline">
+              <span>View Project</span>
+              <FaArrowRight />
             </a>
           </div>
 
           <div className="hero-social">
-            <a href="#" aria-label="Github">
-              GitHub
+            <span className="social-label">Follow me:</span>
+            <a href="https://github.com/KevinWidjaya31" aria-label="Github">
+              <FaGithub />
             </a>
             <a href="#" aria-label="LinkedIn">
-              LinkedIn
+              <FaLinkedin />
             </a>
             <a href="#" aria-label="Instagram">
-              Instagram
+              <FaInstagram />
             </a>
           </div>
         </motion.div>
