@@ -6,6 +6,7 @@ import { Journey } from "./components/Journey/Journey"
 import { Skills } from "./components/Skills/Skills"
 import { Project } from "./components/Project/Project"
 import { Contact } from "./components/Contact/Contact"
+import { Footer } from "./components/Footer/Footer"
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Skills />
         <Project />
         <Contact />
+        <Footer />
       </div>
     </main>
   )

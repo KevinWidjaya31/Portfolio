@@ -1,5 +1,5 @@
-import { useState } from "react"
-import { motion, AnimatePresence } from "framer-motion"
+import { useState, useEffect, useRef } from "react"
+import { motion, AnimatePresence, useInView } from "framer-motion"
 import { SiJavascript, SiNodedotjs, SiGithub, SiFigma } from "react-icons/si"
 import { DiVisualstudio } from "react-icons/di"
 import { FaReact, FaCode } from "react-icons/fa"
@@ -47,61 +47,117 @@ const tools = [
 
 const certificates = [
   {
-    image: "../cert-1.png",
-    title: "Frontend Web Development",
+    image: "../cert-web.png",
+    title: "Belajar Dasar Pemrograman Web",
     issuer: "Dicoding",
     date: "2023",
   },
   {
-    image: "",
-    title: "React Developer",
-    issuer: "Coursera",
-    date: "2024",
-  },
-  {
-    image: "",
-    title: "UI/UX Design",
-    issuer: "Google",
-    date: "2024",
-  },
-  {
-    image: "",
-    title: "Frontend Web Development",
+    image: "../cert-frontend.png",
+    title: "Belajar Membuat Front-end Web untuk Pemula",
     issuer: "Dicoding",
     date: "2023",
   },
   {
-    image: "",
-    title: "React Developer",
-    issuer: "Coursera",
-    date: "2024",
+    image: "../cert-software.png",
+    title: "Memulai Dasar Pemrograman untuk Menjadi Pengembang Software",
+    issuer: "Dicoding",
+    date: "05 Juli 2023",
   },
   {
-    image: "",
-    title: "UI/UX Design",
-    issuer: "Google",
-    date: "2024",
+    image: "../cert-javascript.png",
+    title: "Belajar Dasar Pemrograman JavaScript",
+    issuer: "Dicoding",
+    date: "29 Juli 2023",
+  },
+  {
+    image: "../cert-logic.png",
+    title: "Pengenalan ke Logika Pemrograman (Programming Logic 101)",
+    issuer: "Dicoding",
+    date: "04 Juli 2023",
+  },
+  {
+    image: "../cert-googleCloud.png",
+    title: "Belajar Dasar Google Cloud",
+    issuer: "Dicoding",
+    date: "11 Juli 2023",
+  },
+  {
+    image: "../cert-awsCloud.png",
+    title: "Cloud Practitioner Essentials (Belajar Dasar AWS Cloud)",
+    issuer: "Dicoding",
+    date: "16 Oktober 2023",
+  },
+  {
+    image: "../cert-git.png",
+    title: "Belajar Dasar Git dengan GitHub",
+    issuer: "Dicoding",
+    date: "07 Juli 2023",
+  },
+  {
+    image: "../cert-sql.png",
+    title: "Belajar Dasar Structured Query Language (SQL)",
+    issuer: "Dicoding",
+    date: "25 Juli 2023",
+  },
+  {
+    image: "../cert-menejemenProyek.png",
+    title: "Belajar Dasar Manajemen Proyek",
+    issuer: "Dicoding",
+    date: "01 Juli 2023",
   },
 ]
 
+const gridVariants = {
+  hidden: {},
+  show: {
+    transition: {
+      staggerChildren: 0.5,
+    },
+  },
+}
+
+const cardVariants = {
+  hidden: { opacity: 0, y: 20 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.5, ease: "easeOut" },
+  },
+}
+
 export function Skills() {
-  const [activeTab, setActiveTab] = useState("tech")
   motion
+  const [activeTab, setActiveTab] = useState("tech")
+  const [selectedImage, setSelectedImage] = useState(null)
+
+  const sectionRef = useRef(null)
+  const isInView = useInView(sectionRef, {
+    once: true,
+    margin: "-100px",
+  })
+
+  // ESC close modal
+  useEffect(() => {
+    const handleEsc = (e) => {
+      if (e.key === "Escape") setSelectedImage(null)
+    }
+    window.addEventListener("keydown", handleEsc)
+    return () => window.removeEventListener("keydown", handleEsc)
+  }, [])
 
   return (
-    <section id="skills" className="skills">
+    <section id="skills" className="skills" ref={sectionRef}>
       <h2 className="section-title center">Skills</h2>
 
-      {/* TOGGLE BUTTON */}
+      {/* TOGGLE */}
       <div className="skills-toggle">
         <button
           className={activeTab === "tech" ? "active" : ""}
           onClick={() => setActiveTab("tech")}>
-          <span>
-            <FaCode />
-          </span>
-          Tech Stack{" "}
+          <FaCode /> Tech Stack
         </button>
+
         <button
           className={activeTab === "cert" ? "active" : ""}
           onClick={() => setActiveTab("cert")}>
@@ -112,22 +168,24 @@ export function Skills() {
       {/* CONTENT */}
       <div className="skills-content">
         <AnimatePresence mode="wait">
+          {/* ===== TECH STACK ===== */}
           {activeTab === "tech" && (
             <motion.div
               key="tech"
               className="skills-box"
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -30 }}
-              transition={{ duration: 0.4 }}>
-              <div className="tech-grid">
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}>
+              <motion.div
+                className="tech-grid"
+                variants={gridVariants}
+                initial="hidden"
+                animate={isInView ? "show" : "hidden"}>
                 {tools.map((tech, index) => (
                   <motion.div
                     key={index}
                     className="tech-card"
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: index * 0.05 }}>
+                    variants={cardVariants}>
                     <div
                       className="tech-icon"
                       style={{
@@ -143,10 +201,11 @@ export function Skills() {
                     </div>
                   </motion.div>
                 ))}
-              </div>
+              </motion.div>
             </motion.div>
           )}
 
+          {/* ===== CERTIFICATES ===== */}
           {activeTab === "cert" && (
             <motion.div
               key="cert"
@@ -158,14 +217,13 @@ export function Skills() {
               <div className="certificate-list">
                 {certificates.map((cert, index) => (
                   <div key={index} className="certificate-card">
-                    <div className="certificate-image">
+                    <div
+                      className="certificate-image"
+                      onClick={() => setSelectedImage(cert)}>
                       <img src={cert.image} alt={cert.title} />
                     </div>
-
                     <div className="certificate-content">
-                      <h4>{cert.title}</h4>
-                      <p>{cert.issuer}</p>
-
+                      <h4>{cert.title}</h4> <p>{cert.issuer}</p>
                       <span className="certificate-issued">Issued On: </span>
                       <span>{cert.date}</span>
                     </div>
@@ -176,6 +234,30 @@ export function Skills() {
           )}
         </AnimatePresence>
       </div>
+
+      {/* IMAGE MODAL */}
+      <AnimatePresence>
+        {selectedImage && (
+          <motion.div
+            className="image-modal"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setSelectedImage(null)}>
+            <motion.img
+              src={selectedImage.image}
+              alt={selectedImage.title}
+              initial={{ scale: 0.85 }}
+              animate={{ scale: 1 }}
+              exit={{ scale: 0.85 }}
+              transition={{ duration: 0.25 }}
+              onClick={(e) => e.stopPropagation()}
+            />
+
+            <button className="close-btn">✕</button>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   )
 }

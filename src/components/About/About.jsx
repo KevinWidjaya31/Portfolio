@@ -13,7 +13,14 @@ export function About() {
           whileInView={{ x: 0, opacity: 1 }}
           transition={{ duration: 0.7, ease: "easeOut" }}
           viewport={{ once: true }}>
-          <img src="/about.png" alt="About me" className="about-image" />
+          <img
+            src="/about-me.webp"
+            alt="About me"
+            className="about-image"
+            loading="eager"
+            fetchPriority="high"
+            decoding="async"
+          />
         </motion.div>
 
         {/* RIGHT */}

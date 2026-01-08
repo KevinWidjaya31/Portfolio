@@ -108,7 +108,7 @@ export function Hero() {
           initial={{ x: 60, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           transition={{ duration: 0.8, ease: "easeOut" }}>
-          <img src="/profile.png" alt="Profile" className="hero-image" />
+          <img src="/about-me.webp" alt="Profile" className="hero-image" />
         </motion.div>
       </motion.div>
     </section>

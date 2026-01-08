@@ -1,5 +1,8 @@
-import { motion } from "framer-motion"
-import { FaGraduationCap, FaBriefcase } from "react-icons/fa"
+import { motion, useScroll, useTransform } from "framer-motion"
+import { FaGraduationCap } from "react-icons/fa"
+import { FiBriefcase } from "react-icons/fi"
+import { useRef } from "react"
+
 import "./Journey.css"
 
 const journeyData = [
@@ -34,33 +37,51 @@ const journeyData = [
 
 export function Journey() {
   motion
+  const timelineRef = useRef(null)
+
+  const { scrollYProgress } = useScroll({
+    target: timelineRef,
+    offset: ["start center", "end center"],
+  })
+
+  const lineHeight = useTransform(scrollYProgress, [0, 1], ["0%", "100%"])
+
   return (
     <section id="journey" className="journey">
       <h2 className="section-title center">My Journey</h2>
+      <p className="journey-subtitle">
+        A timeline of my academic and professional milestones
+      </p>
 
-      <div className="timeline">
+      <div className="timeline" ref={timelineRef}>
+        {/* Animated Line */}
+        <div className="timeline-line">
+          <motion.span style={{ height: lineHeight }} />
+        </div>
+
         {journeyData.map((item, index) => (
           <div
             key={index}
             className={`timeline-item ${index % 2 === 0 ? "left" : "right"}`}>
-            {/* DOT WITH ICON */}
+            {/* DOT */}
             <motion.span
               className="timeline-dot"
-              initial={{ scale: 0, opacity: 0 }}
-              whileInView={{ scale: 1, opacity: 1 }}
-              transition={{ duration: 0.4, ease: "easeOut" }}
+              initial={{ scale: 0 }}
+              whileInView={{ scale: 1 }}
+              transition={{ duration: 0.3 }}
               viewport={{ once: true }}>
-              {item.type === "Academic" ? <FaGraduationCap /> : <FaBriefcase />}
+              {item.type === "Academic" ? <FaGraduationCap /> : <FiBriefcase />}
             </motion.span>
 
+            {/* CARD */}
             <motion.div
               className="timeline-card"
               initial={{
                 opacity: 0,
-                x: index % 2 === 0 ? -100 : 100,
+                y: 60,
               }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, ease: "easeOut" }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
               viewport={{ once: true }}>
               <div className="timeline-header">
                 <h3>{item.title}</h3>
