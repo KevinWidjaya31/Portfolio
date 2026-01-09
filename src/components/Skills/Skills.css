@@ -6,20 +6,38 @@
 }
 
 .skills-toggle button {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
   padding: 12px 26px;
   border-radius: 999px;
   border: 2px solid #6366f1;
   background: transparent;
+
   font-size: 1rem;
   font-weight: 500;
   color: #6366f1;
   cursor: pointer;
+
   transition: all 0.3s ease;
 }
 
+/* Icon size */
+.toggle-icon {
+  font-size: 1.05rem;
+}
+
+/* Active + hover */
 .skills-toggle button.active,
 .skills-toggle button:hover {
   background: #6366f1;
+  color: #fff;
+}
+
+/* Icon ikut berubah warna */
+.skills-toggle button.active .toggle-icon,
+.skills-toggle button:hover .toggle-icon {
   color: #fff;
 }
 
@@ -30,13 +48,6 @@
   padding: 120px 8%;
   background: #ffffff;
 }
-
-/* .skills-box {
-  background: #fff;
-  padding: 40px;
-  border-radius: 20px;
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.08);
-} */
 
 /* TECH STACK */
 .tech-grid {

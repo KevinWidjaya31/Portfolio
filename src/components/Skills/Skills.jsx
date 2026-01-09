@@ -2,7 +2,8 @@ import { useState, useEffect, useRef } from "react"
 import { motion, AnimatePresence, useInView } from "framer-motion"
 import { SiJavascript, SiNodedotjs, SiGithub, SiFigma } from "react-icons/si"
 import { DiVisualstudio } from "react-icons/di"
-import { FaReact, FaCode } from "react-icons/fa"
+import { FaReact, FaCode, FaCertificate } from "react-icons/fa"
+import { GrCertificate } from "react-icons/gr"
 
 import "./Skills.css"
 
@@ -50,13 +51,13 @@ const certificates = [
     image: "../cert-web.png",
     title: "Belajar Dasar Pemrograman Web",
     issuer: "Dicoding",
-    date: "2023",
+    date: "10 November 2023",
   },
   {
     image: "../cert-frontend.png",
     title: "Belajar Membuat Front-end Web untuk Pemula",
     issuer: "Dicoding",
-    date: "2023",
+    date: "15 November 2023",
   },
   {
     image: "../cert-software.png",
@@ -126,7 +127,7 @@ const cardVariants = {
   },
 }
 
-export function Skills() {
+export function Skills({ setIsImageOpen }) {
   motion
   const [activeTab, setActiveTab] = useState("tech")
   const [selectedImage, setSelectedImage] = useState(null)
@@ -136,6 +137,22 @@ export function Skills() {
     once: true,
     margin: "-100px",
   })
+
+  useEffect(() => {
+    setIsImageOpen(!!selectedImage)
+  }, [selectedImage])
+
+  useEffect(() => {
+    if (selectedImage) {
+      document.body.style.overflow = "hidden"
+    } else {
+      document.body.style.overflow = "auto"
+    }
+
+    return () => {
+      document.body.style.overflow = "auto"
+    }
+  }, [selectedImage])
 
   // ESC close modal
   useEffect(() => {
@@ -155,13 +172,15 @@ export function Skills() {
         <button
           className={activeTab === "tech" ? "active" : ""}
           onClick={() => setActiveTab("tech")}>
-          <FaCode /> Tech Stack
+          <FaCode className="toggle-icon" />
+          <span>Tech Stack</span>
         </button>
 
         <button
           className={activeTab === "cert" ? "active" : ""}
           onClick={() => setActiveTab("cert")}>
-          Certificates
+          <GrCertificate className="toggle-icon" />
+          <span>Certificates</span>
         </button>
       </div>
 

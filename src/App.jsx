@@ -7,16 +7,18 @@ import { Skills } from "./components/Skills/Skills"
 import { Project } from "./components/Project/Project"
 import { Contact } from "./components/Contact/Contact"
 import { Footer } from "./components/Footer/Footer"
+import { useState } from "react"
 
 function App() {
+  const [isImageOpen, setIsImageOpen] = useState(false)
   return (
     <main>
       <div>
-        <Navbar />
+        {!isImageOpen && <Navbar />}
         <Hero />
         <About />
         <Journey />
-        <Skills />
+        <Skills setIsImageOpen={setIsImageOpen} />
         <Project />
         <Contact />
         <Footer />

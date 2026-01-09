@@ -202,3 +202,28 @@
     justify-content: center;
   }
 }
+
+@media (max-width: 768px) {
+  .about {
+    padding: 80px 16px;
+  }
+
+  .about-container {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  .about-item {
+    grid-template-columns: 1fr;
+  }
+
+  .about-card {
+    width: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+  .about-item {
+    grid-template-columns: 1fr;
+  }
+}

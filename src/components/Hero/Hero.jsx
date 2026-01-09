@@ -7,7 +7,6 @@ import {
   FaArrowRight,
   FaCloudDownloadAlt,
 } from "react-icons/fa"
-
 import "./Hero.css"
 
 const interests = ["Website Developer", "Mobile Developer", "AI Engineer"]
@@ -93,10 +92,14 @@ export function Hero() {
             <a href="https://github.com/KevinWidjaya31" aria-label="Github">
               <FaGithub />
             </a>
-            <a href="#" aria-label="LinkedIn">
+            <a
+              href="https://www.linkedin.com/in/kevin-widjaya/"
+              aria-label="LinkedIn">
               <FaLinkedin />
             </a>
-            <a href="#" aria-label="Instagram">
+            <a
+              href="https://www.instagram.com/kevinwidjaya31_/"
+              aria-label="Instagram">
               <FaInstagram />
             </a>
           </div>
@@ -108,7 +111,14 @@ export function Hero() {
           initial={{ x: 60, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           transition={{ duration: 0.8, ease: "easeOut" }}>
-          <img src="/about-me.webp" alt="Profile" className="hero-image" />
+          <img
+            src="../about-me.webp"
+            alt="Profile"
+            className="hero-image"
+            loading="eager"
+            fetchPriority="high"
+            decoding="async"
+          />
         </motion.div>
       </motion.div>
     </section>

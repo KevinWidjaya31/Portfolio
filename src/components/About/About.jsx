@@ -1,5 +1,34 @@
 import { motion } from "framer-motion"
+import {
+  FaUser,
+  FaLocationArrow,
+  FaGraduationCap,
+  FaEnvelope,
+} from "react-icons/fa"
 import "./About.css"
+
+const aboutItem = [
+  {
+    icon: <FaUser />,
+    title: "NAME",
+    description: "Kevin Widjaya",
+  },
+  {
+    icon: <FaLocationArrow />,
+    title: "LOCATION",
+    description: "Kota Bekasi",
+  },
+  {
+    icon: <FaGraduationCap />,
+    title: "EDUCATION",
+    description: "Informatika",
+  },
+  {
+    icon: <FaEnvelope />,
+    title: "EMAIL",
+    description: "kevinwidjaya31@gmail.com",
+  },
+]
 
 export function About() {
   motion
@@ -14,7 +43,7 @@ export function About() {
           transition={{ duration: 0.7, ease: "easeOut" }}
           viewport={{ once: true }}>
           <img
-            src="/about-me.webp"
+            src="../about-me.webp"
             alt="About me"
             className="about-image"
             loading="eager"
@@ -44,19 +73,19 @@ export function About() {
             creating clean code, smooth user experience, and responsive design.
           </p>
 
-          <div className="about-info">
-            <div>
-              <h4>Experience</h4>
-              <p>2+ Years</p>
-            </div>
-            <div>
-              <h4>Projects</h4>
-              <p>10+ Completed</p>
-            </div>
-            <div>
-              <h4>Focus</h4>
-              <p>Frontend & UI</p>
-            </div>
+          <div className="about-item">
+            {aboutItem.map((about, index) => (
+              <div key={index} className="about-card">
+                <div className="about-icon">
+                  <span>{about.icon}</span>
+                </div>
+
+                <div className="about-info">
+                  <h4>{about.title}</h4>
+                  <p>{about.description}</p>
+                </div>
+              </div>
+            ))}
           </div>
         </motion.div>
       </div>

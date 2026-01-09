@@ -42,17 +42,6 @@
   transform-origin: top;
 }
 
-/* Center line */
-/* .timeline::before {
-  content: "";
-  position: absolute;
-  left: 50%;
-  width: 3px;
-  height: 100%;
-  background: #e5e7eb;
-  transform: translateX(-50%);
-} */
-
 /* Item */
 .timeline-item {
   width: 50%;
@@ -62,7 +51,7 @@
 
 /* Positioning */
 .timeline-item.left {
-  right: 8%;
+  right: 3px;
   text-align: right;
 }
 
@@ -89,11 +78,11 @@
 }
 
 .timeline-item.left .timeline-dot {
-  right: -17px;
+  right: -20px;
 }
 
 .timeline-item.right .timeline-dot {
-  left: -17px;
+  left: -16px;
 }
 
 .timeline-dot::after {
@@ -173,22 +162,76 @@
 
 /* Responsive */
 @media (max-width: 900px) {
-  .timeline::before {
-    left: 12px;
+  .journey {
+    padding: 80px 16px;
   }
 
+  .section-title.center {
+    font-size: 28px;
+  }
+
+  .journey-subtitle {
+    font-size: 14px;
+    margin-bottom: 48px;
+  }
+
+  /* Timeline container */
+  .timeline {
+    max-width: 100%;
+    padding-left: 32px; /* ruang untuk line + dot */
+  }
+
+  /* Line pindah ke kiri */
+  .timeline-line {
+    left: 16px;
+    top: 0;
+    height: 100%;
+    transform: none;
+  }
+
+  /* Item full width */
   .timeline-item {
     width: 100%;
+    padding: 0 0 0 24px; /* HAPUS padding besar */
     left: 0 !important;
-    padding-left: 40px;
+    right: auto;
+    margin-bottom: 48px;
+  }
+
+  /* Dot sejajar card */
+  .timeline-dot {
+    left: -32px !important;
+    top: 125px;
+    bottom: 125px;
+    transform: none;
+  }
+
+  /* Card */
+  .timeline-card {
+    width: 100%;
+    padding: 20px;
+    border-radius: 16px;
     text-align: left;
   }
 
-  .timeline-dot {
-    left: 4px !important;
+  .timeline-header h3 {
+    font-size: 16px;
   }
 
-  .timeline-line {
-    left: 12px;
+  .year {
+    font-size: 13px;
+  }
+
+  .place {
+    font-size: 13px;
+  }
+
+  .desc {
+    font-size: 14px;
+  }
+
+  .tags span {
+    font-size: 11px;
+    padding: 5px 10px;
   }
 }

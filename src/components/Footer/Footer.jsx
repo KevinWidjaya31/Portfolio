@@ -50,18 +50,20 @@ export function Footer() {
         <div className="footer-right">
           <h4>Follow Me</h4>
           <div className="footer-social">
-            <a href="https://github.com/yourusername" aria-label="GitHub">
+            <a href="https://github.com/KevinWidjaya31" aria-label="GitHub">
               <FaGithub />
             </a>
             <a
-              href="https://linkedin.com/in/yourusername"
+              href="https://www.linkedin.com/in/kevin-widjaya/"
               aria-label="LinkedIn">
               <FaLinkedin />
             </a>
-            <a href="https://instagram.com/yourusername" aria-label="Instagram">
+            <a
+              href="https://www.instagram.com/kevinwidjaya31_/"
+              aria-label="Instagram">
               <FaInstagram />
             </a>
-            <a href="mailto:your@email.com" aria-label="Email">
+            <a href="mailto:kevinwidjaya31@gmail.com" aria-label="Email">
               <FaEnvelope />
             </a>
           </div>
