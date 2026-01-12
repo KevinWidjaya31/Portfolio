@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import { motion } from "framer-motion"
 import {
   FaHome,
-  FaRegUser,
+  FaUser,
   FaGraduationCap,
   FaCode,
   FaFolderOpen,
@@ -17,7 +17,7 @@ export function Navbar() {
 
   const navLinks = [
     { href: "#home", label: "Home", icon: <FaHome /> },
-    { href: "#about", label: "About", icon: <FaRegUser /> },
+    { href: "#about", label: "About", icon: <FaUser /> },
     { href: "#journey", label: "My Journey", icon: <FaGraduationCap /> },
     { href: "#skills", label: "Skills", icon: <FaCode /> },
     { href: "#projects", label: "Projects", icon: <FaFolderOpen /> },

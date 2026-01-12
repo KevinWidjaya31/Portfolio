@@ -7,7 +7,7 @@ const projects = [
   {
     title: "Sign Language Recognition",
     desc: "Real-time sign language detection using ML.",
-    image: "../profile.png",
+    image: "",
     tech: ["Python", "OpenCV", "XGBoost"],
     code: "#",
     demo: "#",
@@ -15,7 +15,7 @@ const projects = [
   {
     title: "AI Chatbot",
     desc: "AI-powered chatbot application.",
-    image: "/images/project2.png",
+    image: "",
     tech: ["React", "API", "AI"],
     code: "#",
     demo: "#",
@@ -23,7 +23,7 @@ const projects = [
   {
     title: "Portfolio Website",
     desc: "Personal portfolio built with React.",
-    image: "/images/project3.png",
+    image: "",
     tech: ["React", "Framer"],
     code: "#",
     demo: "#",
@@ -31,7 +31,7 @@ const projects = [
   {
     title: "E-Commerce App",
     desc: "Modern e-commerce UI.",
-    image: "/images/project4.png",
+    image: "",
     tech: ["React", "Firebase"],
     code: "#",
     demo: "#",
@@ -39,7 +39,7 @@ const projects = [
   {
     title: "Data Visualization",
     desc: "Charts & dashboards.",
-    image: "/images/project5.png",
+    image: "",
     tech: ["D3.js", "JS"],
     code: "#",
     demo: "#",
@@ -47,7 +47,7 @@ const projects = [
   {
     title: "Mobile App UI",
     desc: "Mobile UI design prototype.",
-    image: "/images/project6.png",
+    image: "",
     tech: ["Figma"],
     code: "#",
     demo: "#",
@@ -79,7 +79,13 @@ export function Project() {
             whileInView="visible"
             viewport={{ once: true }}
             custom={index}>
-            <img src={project.image} alt={project.title} />
+            <div className="image-wrapper">
+              {project.image ? (
+                <img src={project.image} alt={project.title} />
+              ) : (
+                <div className="image-placeholder">Coming Soon</div>
+              )}
+            </div>
 
             <div className="card-content">
               <h4>{project.title}</h4>
