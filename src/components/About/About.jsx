@@ -6,6 +6,7 @@ import {
   FaEnvelope,
 } from "react-icons/fa"
 import "./About.css"
+import aboutPict from "../../assets/about-me.webp"
 
 const aboutItem = [
   {
@@ -43,7 +44,7 @@ export function About() {
           transition={{ duration: 0.7, ease: "easeOut" }}
           viewport={{ once: true }}>
           <img
-            src="../about-me.webp"
+            src={aboutPict}
             alt="About me"
             className="about-image"
             loading="eager"

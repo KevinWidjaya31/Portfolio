@@ -8,6 +8,7 @@ import {
   FaCloudDownloadAlt,
 } from "react-icons/fa"
 import "./Hero.css"
+import profilePict from "../../assets/about-me.webp"
 
 const interests = ["Website Developer", "Mobile Developer", "AI Engineer"]
 
@@ -66,10 +67,6 @@ export function Hero() {
           </h2>
 
           <p className="hero-desc">
-            {/* A last-year Informatics student at Universitas Bunda Mulia, I am
-            passionate about building modern web applications, developing mobile
-            solutions, and exploring artificial intelligence to create impactful
-            and innovative digital experiences. */}
             A last-year Informatics student at Universitas Bunda Mulia, I am
             passionate about creating modern, efficient, and user-centered
             digital solutions while continuously improving my technical and
@@ -112,7 +109,7 @@ export function Hero() {
           animate={{ x: 0, opacity: 1 }}
           transition={{ duration: 0.8, ease: "easeOut" }}>
           <img
-            src="../about-me.webp"
+            src={profilePict}
             alt="Profile"
             className="hero-image"
             loading="eager"
