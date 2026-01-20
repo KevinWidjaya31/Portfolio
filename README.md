@@ -1,16 +1,42 @@
-# React + Vite
+# 🚀 Personal Portfolio Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, responsive, and animated personal portfolio website built to showcase projects, skills, experience, and contact information with a clean and elegant design.
 
-Currently, two official plugins are available:
+This portfolio focuses on **user experience**, **smooth animations**, and **performance**, making it suitable for professional and recruiter-facing purposes.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## ✨ Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- 🎨 **Modern UI Design** — Clean layout with attention to spacing, typography, and visual hierarchy
+- ⚡ **Smooth Animations** — Powered by **Framer Motion**
+- 📱 **Fully Responsive** — Optimized for desktop, tablet, and mobile devices
+- 🧭 **Animated Navigation** — Active section indicators & smooth scrolling
+- 🖼️ **Image Modal Viewer** — Zoomable image preview with scroll lock
+- 📨 **Contact Form** — Email sending via **EmailJS**
+- 🔔 **Toast Notifications** — Elegant feedback using **react-hot-toast**
+- 🧩 **Reusable Components** — Clean and maintainable component structure
+- 🚀 **Fast Performance** — Built with Vite for blazing-fast development
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🛠️ Tech Stack
+
+- **Frontend:** React + Vite
+- **Styling:** CSS (Custom, Modern Layout)
+- **Animation:** Framer Motion
+- **Email Service:** EmailJS
+- **Notification:** react-hot-toast
+- **Icons:** React Icons
+
+---
+
+📬 Contact
+
+If you’d like to collaborate, hire me, or just say hello:
+
+📧 Email: kevinwidjaya31@gmail.com
+
+🌐 Portfolio: ([your website link here](https://portfolio-kevin-widjaya.vercel.app/))
+
+💼 LinkedIn: ([your LinkedIn link here](https://www.linkedin.com/in/kevin-widjaya/))
