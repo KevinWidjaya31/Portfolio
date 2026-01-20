@@ -37,6 +37,6 @@ If you’d like to collaborate, hire me, or just say hello:
 
 📧 Email: kevinwidjaya31@gmail.com
 
-🌐 Portfolio: ([your website link here](https://portfolio-kevin-widjaya.vercel.app/))
+🌐 Portfolio: ([portfolio-kevin-widjaya.vercel.app](https://portfolio-kevin-widjaya.vercel.app/))
 
-💼 LinkedIn: ([your LinkedIn link here](https://www.linkedin.com/in/kevin-widjaya/))
+💼 LinkedIn: ([kevinwidjaya](https://www.linkedin.com/in/kevin-widjaya/))
